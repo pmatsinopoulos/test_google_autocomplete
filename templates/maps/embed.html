@@ -12,11 +12,13 @@
 
 {%  block content %}
 
-{% set q = '%CE%99%CE%A0%CE%A0%CE%91%CE%A1%CE%A7%CE%9F%CE%A5%2C%2066%2C%20%CE%91%CE%B8%CE%AE%CE%BD%CE%B1%2C%20%CE%91%CF%84%CF%84%CE%B9%CE%BA%CE%AE%2C%2011743%2C%20%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1' %}
-<iframe src=https://www.google.com/maps/embed/v1/place?key={{ GOOGLE_API }}&q={{ q }}"
-        width="600"
-        height="450"
-        frameborder="0"
-        style="border:0"></iframe>
+    {% set q = '%CE%99%CE%A0%CE%A0%CE%91%CE%A1%CE%A7%CE%9F%CE%A5%2C%2066%2C%20%CE%91%CE%B8%CE%AE%CE%BD%CE%B1%2C%20%CE%91%CF%84%CF%84%CE%B9%CE%BA%CE%AE%2C%2011743%2C%20%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1' %}
+    <iframe src=https://www.google.com/maps/embed/v1/place?key={{ GOOGLE_API }}&q={{ q }}"
+            width="600"
+            height="450"
+            frameborder="0"
+            style="border:0"></iframe>
+
+    <h3><a href="https://developers.google.com/maps/billing/understanding-cost-of-use?hl=en_GB#places-product">It is free - Pricing Details</a></h3>
 
 {% endblock %}
