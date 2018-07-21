@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% set title = 'Maps/Static' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block map_case %}
+    {{ title }}
+{% endblock %}
+
+{%  block content %}
+
+    {% set address = '%CE%99%CE%A0%CE%A0%CE%91%CE%A1%CE%A7%CE%9F%CE%A5%2C%2066%2C%20%CE%91%CE%B8%CE%AE%CE%BD%CE%B1%2C%20%CE%91%CF%84%CF%84%CE%B9%CE%BA%CE%AE%2C%2011743%2C%20%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1' %}
+    {% set marker_label = '%CE%9D%CE%99%CE%9A%CE%9F%CE%9B%CE%91%CE%9F%CE%A3%20%CE%9C%CE%91%CE%A1%CE%A4%CE%99%CE%9D%CE%99%CE%94%CE%97%CE%A3' %}
+    {% set parameters="center=" + address %}
+    {% set parameters=parameters + "&size=500x400" %}
+    {% set parameters=parameters + "&key=" + GOOGLE_API %}
+    {% set parameters=parameters + "&zoom=14" %}
+    {% set parameters=parameters + "&markers=color:blue%7Clabel:S%7C" + address %}
+
+    <img src="http://maps.googleapis.com/maps/api/staticmap?{{ parameters }}"/>
+
+{% endblock %}

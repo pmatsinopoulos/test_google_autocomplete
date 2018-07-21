@@ -18,3 +18,7 @@ def root():
 def maps_embed():
     return render_template('maps/embed.html', GOOGLE_API=os.getenv('GOOGLE_API') )
 
+
+@app.route('/maps/static/')
+def maps_static():
+    return render_template('maps/static.html', GOOGLE_API=os.getenv('GOOGLE_API') )

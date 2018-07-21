@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 
+{% set title = 'Maps/Embed' %}
+
 {% block title %}
-    Maps/Embed
+    {{ title }}
 {% endblock %}
 
 {% block map_case %}
-    Maps/Embed
+    {{ title }}
 {% endblock %}
 
 {%  block content %}
 
-{#{% set GOOGLE_API = 'AIzaSyB3gGnAN25eOsmzmaQWwLV67bZLd0BYLRE' %}#}
 {% set q = '%CE%99%CE%A0%CE%A0%CE%91%CE%A1%CE%A7%CE%9F%CE%A5%2C%2066%2C%20%CE%91%CE%B8%CE%AE%CE%BD%CE%B1%2C%20%CE%91%CF%84%CF%84%CE%B9%CE%BA%CE%AE%2C%2011743%2C%20%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1' %}
 <iframe src=https://www.google.com/maps/embed/v1/place?key={{ GOOGLE_API }}&q={{ q }}"
         width="600"

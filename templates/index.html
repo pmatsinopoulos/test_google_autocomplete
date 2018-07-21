@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block content %}
-    <div>
+    <div class="flow-vertical-link">
         <a href="{{ url_for('maps_embed') }}">Maps/Embed</a>
+    </div>
+    <div class="flow-vertical-link">
+        <a href="{{ url_for('maps_static') }}">Maps/Static</a>
     </div>
 {% endblock %}
