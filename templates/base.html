@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %} - All About Maps</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/app.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='javascript/jquery-3.3.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='javascript/bootstrap.bundle.min.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Maps</h1>
+        <h2>{% block map_case %}{% endblock %}</h2>
+        <div class="flow-vertical-link">
+            <a href="{{ url_for('root') }}">Back to Main</a>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -9,6 +9,7 @@ Blinker = "*"
 
 [dev-packages]
 Watchdog = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "2.7"
