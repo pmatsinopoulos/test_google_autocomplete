@@ -1,3 +1,12 @@
 .flow-vertical-link {
     margin-bottom: 10px;
 }
+
+.maps-dynamic {
+    height: 600px;
+    width: 600px;
+}
+
+.maps-dynamic #map {
+    height: 100%;
+}

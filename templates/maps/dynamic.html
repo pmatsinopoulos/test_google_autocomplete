@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% set title = 'Maps/Dynamic - Simple Case' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block map_case %}{{ title }}{% endblock %}
+
+{% block page_specific_javascript %}
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_API }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="maps-dynamic">
+        <div id="map">
+
+        </div>
+    </div>
+
+    <h3><a href="https://developers.google.com/maps/billing/understanding-cost-of-use?hl=en_GB#places-product">It is charged - Pricing Details</a></h3>
+
+{% endblock %}
