@@ -27,3 +27,8 @@ def maps_static():
 @app.route('/maps/dynamic/')
 def maps_dynamic():
     return render_template('maps/dynamic.html', GOOGLE_API=os.getenv('GOOGLE_API') )
+
+
+@app.route('/places/autocomplete/')
+def places_autocomplete():
+    return render_template('places/autocomplete.html', GOOGLE_API=os.getenv('GOOGLE_API') )

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% set title = 'Places Autocomplete' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block map_case %}{{ title }}{% endblock %}
+
+{% block page_specific_javascript %}
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_API }}&libraries=places"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="places-autocomplete">
+        <input id="pac-input" type="text" placeholder="Start typing here"/>
+    </div>
+{% endblock %}
