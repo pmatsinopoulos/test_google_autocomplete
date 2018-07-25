@@ -1,4 +1,5 @@
 $(function () {
+
     $('.maps-dynamic').each(function () {
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 37.971524, lng: 23.725872},
@@ -36,10 +37,67 @@ $(function () {
             'url',
             'utc_offset',
             'vicinity']);
-        var getPlaceSelected = function() {
+        var getPlaceSelected = function () {
             var place = autocomplete.getPlace();
             console.log(place);
         };
         autocomplete.addListener('place_changed', getPlaceSelected);
+    });
+
+    $('.mapbox-example').each(function () {
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZ2lhb2xhIiwiYSI6ImNqazExNjlrbzBibnIzanM0M2o5dGszdmwifQ.E5N02GWNWaJclZIMrp0uqg';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v10?optimize=true',
+            zoom: 12,
+            center: [23.7275, 37.9838]
+        });
+        map.addControl(new mapboxgl.NavigationControl());
+        console.log('Current zoom level: ', map.getZoom());
+
+        var geojson = {
+            type: 'FeatureCollection',
+            features: [{
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [23.7275, 37.9838]
+                },
+                properties: {
+                    title: 'Mapbox',
+                    description: 'Αθήνα, Κέντρο',
+                    URL: 'http://www.cnn.gr'
+                }
+            },
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [23.7414, 38.0038]
+                    },
+                    properties: {
+                        title: 'Mapbox',
+                        description: 'Αθήνα, Κυψέλη',
+                        URL: 'http://www.google.com'
+                    }
+                }]
+        };
+
+        // add markers to map
+        geojson.features.forEach(function (marker) {
+
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'marker';
+
+            // make a marker for each feature and add to the map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({ offset: 25 })
+                .setHTML('<h3>' + marker.properties.title + '</h3><a target="_blank" href="'+marker.properties.URL+'"><p>' + marker.properties.description + '</p></a>'))
+                .addTo(map);
+        });
+
     });
 });

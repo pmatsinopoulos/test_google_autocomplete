@@ -32,3 +32,9 @@ def maps_dynamic():
 @app.route('/places/autocomplete/')
 def places_autocomplete():
     return render_template('places/autocomplete.html', GOOGLE_API=os.getenv('GOOGLE_API') )
+
+
+@app.route('/mapbox/example/')
+def mapbox_example():
+    return render_template('mapbox/example.html')
+

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% set title = 'Mapbox Example' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block map_case %}{{ title }}{% endblock %}
+
+{% block page_specific_javascript %}
+    <script src="//api.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="mapbox-example">
+        <div id="map" style="width: 800px; height: 600px;"></div>
+    </div>
+
+{% endblock %}
