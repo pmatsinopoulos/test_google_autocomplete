@@ -38,3 +38,7 @@ def places_autocomplete():
 def mapbox_example():
     return render_template('mapbox/example.html')
 
+
+@app.route('/maps/reverse_geocoding.html')
+def maps_reverse_geocoding():
+    return render_template('maps/reverse_geocoding.html', GOOGLE_API=os.getenv('GOOGLE_API'))

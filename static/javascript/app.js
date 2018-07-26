@@ -94,10 +94,30 @@ $(function () {
             // make a marker for each feature and add to the map
             new mapboxgl.Marker(el)
                 .setLngLat(marker.geometry.coordinates)
-                .setPopup(new mapboxgl.Popup({ offset: 25 })
-                .setHTML('<h3>' + marker.properties.title + '</h3><a target="_blank" href="'+marker.properties.URL+'"><p>' + marker.properties.description + '</p></a>'))
+                .setPopup(new mapboxgl.Popup({offset: 25})
+                    .setHTML('<h3>' + marker.properties.title + '</h3><a target="_blank" href="' + marker.properties.URL + '"><p>' + marker.properties.description + '</p></a>'))
                 .addTo(map);
         });
 
+    });
+
+    $('.reverse-geocoding').each(function () {
+
+        $('#button-get-long-lat').on('click', function () {
+            var $input = $('#long-lat');
+            var latlngStr = $input.val().split(',', 2);
+            var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+            var geocoder = new google.maps.Geocoder;
+            var $textArea = $('#location-results');
+
+            geocoder.geocode({'location': latlng}, function (results, status) {
+                if (status === 'OK') {
+                    $textArea.html(JSON.stringify(results));
+                } else {
+                    window.alert('Geocoder failed due to: ' + status);
+                }
+            });
+            return false;
+        });
     });
 });

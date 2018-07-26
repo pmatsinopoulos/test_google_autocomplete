@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% set title = 'Reverse Geocoding' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block map_case %}
+    {{ title }}
+{% endblock %}
+
+{% block page_specific_javascript %}
+    <script src="//maps.googleapis.com/maps/api/js?key={{ GOOGLE_API }}"></script>
+{% endblock %}
+
+{%  block content %}
+    <div class="reverse-geocoding">
+        <label for="long-lat">Long, Lat:</label><br/>
+        <input type="text" id="long-lat" class="form-control"/><br/>
+        <button type="button" id="button-get-long-lat" class="btn btn-info">Get</button><br/>
+        <label>Address found:</label>
+        <textarea id="location-results" rows="10" cols="30" class="form-control">
+        </textarea>
+    </div>
+{% endblock %}
